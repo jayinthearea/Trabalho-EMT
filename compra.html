@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de compra</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="../HTML/logo.png" alt="Hidro+" style="height: 40px; margin-right: 10px;">
+            HydroTech
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">                
+                <li class="nav-item active">
+                <a onclick="voltar()" class="nav-link" href="#">Início</a>
+                </li>
+                <li class="nav-item">
+                <a onclick="voltar()" class="nav-link" href="#sobre">O que é</a>
+                </li>
+                <li class="nav-item">
+                  <a onclick="voltar()" class="nav-link" href="#fazer">O que fazemos</a>
+                </li>
+                <li class="nav-item">
+                    <a onclick="voltar()" class="nav-link" href="#galeria">Imagens</a>
+                </li>
+                <li class="nav-item">
+                    <a onclick="voltar()" class="nav-link" href="#materiais">Materiais</a>
+                </li>
+            </ul>
+        </div>
+    </nav> 
+    <header class="hero bg-secondary p-3 text-light text-center">
+        <div class="container">
+            <h1 class="display-4">Braço Hidráulico</h1>
+            <p class="lead">Trabalho de EMT - Página de compra</p>
+        </div>
+    </header>
+
+    <form name="fo" onsubmit="return calcular(event)">
+        <div class="form-group">
+            <label for="inputAddress">Endereço</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="Rua dos Bobos, nº 0">
+        </div>
+        <div class="form-group">
+            <label for="inputAddress2">Complemento</label>
+            <input type="text" class="form-control" id="inputAddress2" placeholder="Andar, bloco etc.">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputCity">Cidade</label>
+                <input type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputEstado">Estado</label>
+                <select name="sel" id="inputEstado" class="form-control">
+                    <option selected>Escolher...</option>
+                    <option value="1">AC - Acre</option>
+                    <option value="2">AP - Amapá</option>
+                    <option value="3">AM - Amazonas</option>
+                    <option value="4">PA - Pará</option>
+                    <option value="5">RO - Rondônia</option>
+                    <option value="6">RR - Roraima</option>
+                    <option value="7">TO - Tocantins</option>
+                    <option value="10">AL - Alagoas</option>
+                    <option value="11">BA - Bahia</option>
+                    <option value="12">MA - Maranhão</option>
+                    <option value="13">PB - Paraíba</option>
+                    <option value="14">PE - Pernambuco</option>
+                    <option value="15">PI - Piauí</option>
+                    <option value="16">RN - Rio Grande do Norte</option>
+                    <option value="17">SE - Sergipe</option>
+                    <option value="20">PR - Paraná</option>
+                    <option value="21">RS - Rio Grande do Sul</option>
+                    <option value="22">SC - Santa Catarina</option>
+                    <option value="30">ES - Espírito Santo</option>
+                    <option value="31">MG - Minas Gerais</option>
+                    <option value="32">RJ - Rio de Janeiro</option>
+                    <option value="33">SP - São Paulo</option>
+                    <option value="40">DF - Distrito Federal</option>
+                    <option value="41">GO - Goiás</option>
+                    <option value="42">MT - Mato Grosso</option>
+                    <option value="43">MS - Mato Grosso do Sul</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="inputCEP">CEP</label>
+                <input type="text" class="form-control" id="inputCEP">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                    Concordo com os termos de uso
+                </label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Calcular frete</button>
+    </form>
+
+    <script>
+        function calcular(event) {
+            event.preventDefault();
+            console.log("Botão clicado!");
+
+            if (fo.sel.value === "1") {
+                Swal.fire({
+                    title: "Frete: R$80,00",
+                    text: "O valor final do produto ficou em: R$210,00",
+                    icon: "success"
+                });
+            } else {
+                Swal.fire({
+                    title: "Erro!",
+                    text: "Por favor, escolha um estado.",
+                    icon: "error"
+                });
+            }
+        }
+    </script>
+</body>
+</html>
